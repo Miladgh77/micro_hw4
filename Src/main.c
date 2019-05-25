@@ -102,7 +102,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
 color_t colors[3];
-colors[0].B = 255;
+colors[0].B = 0;
 colors[0].R = 255;
 colors[0].G = 255;
 
