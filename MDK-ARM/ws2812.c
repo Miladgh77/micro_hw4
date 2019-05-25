@@ -7,15 +7,15 @@ void set_color(led_conf_t* rgb_led, color_t *colors, uint16_t led_num){
 		{
 				for(int j=0 ; j<8 ; j++)
 					{
-						rgb_led->led_colors[(24*i)+j] = (colors[i].G & ((2^(j%8)) == 1)) ? 20 : 10;
+						rgb_led->led_colors[(24*i)+j] = ((colors[i].G & (2^(j%8))) == (2^(j%8)) ) ? 20 : 10;
 					}
 				for(int j=8 ; j<16 ; j++)
 					{
-						rgb_led->led_colors[(24*i)+j] = (colors[i].R & ((2^(j%8)) == 1)) ? 20 : 10;
+						rgb_led->led_colors[(24*i)+j] = ((colors[i].R & (2^(j%8))) == (2^(j%8)) ) ? 20 : 10;
 					}
 				for(int j=16 ; j<24 ; j++)
 					{
-						rgb_led->led_colors[(24*i)+j] = (colors[i].B & ((2^(j%8)) == 1)) ? 20 : 10;
+						rgb_led->led_colors[(24*i)+j] = ((colors[i].B & (2^(j%8))) == (2^(j%8)) ) ? 20 : 10;
 					}
 		}
 	HAL_TIM_PWM_Start_DMA(&htim1,TIM_CHANNEL_1,(uint32_t*)rgb_led->led_colors, led_num * 24);
